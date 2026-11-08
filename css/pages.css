@@ -22,9 +22,10 @@
 
 /* Galeria (texturas e mapas) */
 .gallery { margin-top: var(--space-5); list-style: none; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-.gallery-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.gallery > li { display: flex; }
+.gallery-item { flex: 1; display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
 .gallery-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
-.gallery-item figcaption { padding: var(--space-3); }
+.gallery-item figcaption { flex: 1; padding: var(--space-3); }
 .gallery-item figcaption p { color: var(--muted); font-size: .95rem; }
 .gallery-thumb--empty {
   display: grid; place-items: center; aspect-ratio: 4 / 3;
