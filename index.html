@@ -8,17 +8,25 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('tema');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
 <style>
 :root{
   --bg:#f6f5fb; --surface:#ffffff; --text:#17151f; --muted:#5d5a6b; --line:#e3e0ee;
   --accent:#6d4aff; --accent-2:#e0408a; --chip:#efebff;
 }
 @media (prefers-color-scheme: dark){
-  :root{
+  :root:not([data-theme="light"]){
     --bg:#0e0d14; --surface:#17151f; --text:#f1effa; --muted:#a19db3; --line:#2a2737;
     --accent:#9c85ff; --accent-2:#ff6fb0; --chip:#221e33;
   }
 }
+:root[data-theme="dark"]{
+  --bg:#0e0d14; --surface:#17151f; --text:#f1effa; --muted:#a19db3; --line:#2a2737;
+  --accent:#9c85ff; --accent-2:#ff6fb0; --chip:#221e33;
+}
+:root{color-scheme:light dark}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
@@ -33,6 +41,11 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;height:6
 nav ul{display:flex;gap:20px;list-style:none;font-size:.92rem}
 nav ul a{text-decoration:none;color:var(--muted)}
 nav ul a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.theme-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;font-size:1.05rem;line-height:1}
+.theme-btn:hover{border-color:var(--accent)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body,.card,.skill,nav,.theme-btn{transition:background-color .25s,border-color .25s,color .25s}
 
 /* Topo */
 .hero{padding:96px 0 72px}
@@ -84,12 +97,15 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 <nav>
   <div class="wrap">
     <a class="logo" href="#">&lt;sh-jmb<span>/</span>&gt;</a>
-    <ul>
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#tecnologias">Tecnologias</a></li>
-      <li><a href="#projetos">Projetos</a></li>
-      <li><a href="#criacoes">Criações</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#tecnologias">Tecnologias</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#criacoes">Criações</a></li>
+      </ul>
+      <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+    </div>
   </div>
 </nav>
 
@@ -189,9 +205,33 @@ footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-s
 </main>
 
 <footer>
-  <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML e CSS · Hospedado no GitHub Pages</div>
+  <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
 </footer>
 
-<script>document.getElementById('ano').textContent = new Date().getFullYear();</script>
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// Modo claro/escuro: segue o sistema até a pessoa escolher, e lembra a escolha
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('tema');
+  var media = window.matchMedia('(prefers-color-scheme: dark)');
+  function atual(){ return root.dataset.theme || (media.matches ? 'dark' : 'light'); }
+  function atualizarBotao(){
+    var escuro = atual() === 'dark';
+    btn.textContent = escuro ? '☀️' : '🌙';
+    btn.setAttribute('aria-label', escuro ? 'Ativar modo claro' : 'Ativar modo escuro');
+    btn.title = btn.getAttribute('aria-label');
+  }
+  btn.addEventListener('click', function(){
+    var novo = atual() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = novo;
+    try { localStorage.setItem('tema', novo); } catch(e) {}
+    atualizarBotao();
+  });
+  media.addEventListener('change', atualizarBotao);
+  atualizarBotao();
+})();
+</script>
 </body>
 </html>
