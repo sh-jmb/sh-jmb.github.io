@@ -8,12 +8,12 @@ Meu portfólio pessoal e profissional, publicado em **https://sh-jmb.github.io**
 index.html            página inicial (só HTML)
 sobre.html            formação e objetivo
 criacoes.html         galeria de texturas e mapas (VRChat)
+vendor/bootstrap/      Bootstrap 5.3.3 (arquivos locais, verificados por hash SHA-384)
 css/
+  tokens.css          cores (claro/escuro) e fontes, aplicadas às variáveis --bs-* do Bootstrap
+  base.css            ajustes gerais, tipografia e acessibilidade
+  components.css      personalização dos componentes do Bootstrap (navbar, botões, cards) e componentes próprios
   pages.css           estilos das páginas internas (detalhes e galeria)
-  tokens.css          cores (claro/escuro), fontes, tamanhos, espaçamentos, tempos de animação
-  base.css            reset, tipografia e acessibilidade
-  layout.css          estrutura da página e responsivo
-  components.css      botões, cards, tecnologias e demais elementos
   animations.css      animações, hover e prefers-reduced-motion
 js/
   theme-init.js       aplica o tema salvo antes da página aparecer

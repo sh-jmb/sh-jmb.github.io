@@ -1,10 +1,10 @@
-// Roda antes da página aparecer: aplica o tema salvo (evita "piscar")
-// e marca que o JavaScript está ativo (usado pelas animações).
+// Roda antes da página aparecer: define o tema do Bootstrap (data-bs-theme)
+// a partir da escolha salva ou do tema do sistema, e marca que o JS está ativo.
 (function () {
   var root = document.documentElement;
   root.classList.add('js');
-  try {
-    var t = localStorage.getItem('tema');
-    if (t === 'light' || t === 'dark') root.dataset.theme = t;
-  } catch (e) { /* armazenamento indisponível: segue o tema do sistema */ }
+  var saved = null;
+  try { saved = localStorage.getItem('tema'); } catch (e) { /* sem armazenamento */ }
+  var system = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  root.setAttribute('data-bs-theme', saved === 'light' || saved === 'dark' ? saved : system);
 })();

@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,41 +18,47 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/animations.css">
 
   <script src="js/theme-init.js"></script>
+  <script defer src="vendor/bootstrap/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="nav" aria-label="Navegação principal">
-    <div class="wrap">
-      <a class="logo" href="index.html">&lt;sh-jmb<span>/</span>&gt;</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#texturas">Texturas</a></li>
-          <li><a href="#mapas">Mapas</a></li>
-          <li><a href="index.html">Início</a></li>
-        </ul>
+  <nav class="navbar navbar-expand-md sticky-top site-nav" aria-label="Navegação principal">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">&lt;sh-jmb<span>/</span>&gt;</a>
+      <div class="d-flex align-items-center gap-2 order-md-last">
         <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto me-md-3">
+          <li class="nav-item"><a class="nav-link" href="#texturas">Texturas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#mapas">Mapas</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="wrap">
+  <header class="hero py-5">
+    <div class="container">
       <a class="back-link" href="index.html#criacoes">← Voltar ao início</a>
       <span class="label">Fora do código</span>
-      <h1>Minhas <span class="grad">criações</span></h1>
-      <p>Texturas para avatares e mapas que crio para o VRChat.</p>
+      <h1 class="mt-2">Minhas <span class="grad">criações</span></h1>
+      <p class="lead mt-3">Texturas para avatares e mapas que crio para o VRChat.</p>
     </div>
   </header>
 
@@ -63,68 +69,68 @@
          (de preferência .webp, com uns 1200px de largura e até ~300 KB).
       2. Troque um item "Em breve" pelo modelo abaixo:
 
-      <li>
-        <figure class="gallery-item">
-          <img src="assets/criacoes/texturas/nome-da-imagem.webp" alt="Descrição curta da imagem"
-               width="1200" height="900" loading="lazy" decoding="async">
-          <figcaption>
-            <h3>Nome da criação</h3>
-            <p>Descrição: o que é, ferramentas usadas, detalhes interessantes.</p>
+      <li class="col">
+        <figure class="card h-100 mb-0">
+          <img class="card-img-top" src="assets/criacoes/texturas/nome-da-imagem.webp"
+               alt="Descrição curta da imagem" width="1200" height="900" loading="lazy" decoding="async">
+          <figcaption class="card-body">
+            <h3 class="h6 card-title">Nome da criação</h3>
+            <p class="card-text">Descrição: o que é, ferramentas usadas, detalhes interessantes.</p>
           </figcaption>
         </figure>
       </li>
     -->
 
-    <section class="section reveal" id="texturas">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="texturas">
+      <div class="container">
         <span class="label">01 · Texturas</span>
-        <h2>🎨 Texturas para avatares</h2>
-        <p class="prose">Texturas criadas para avatares 3D usados no VRChat.</p>
-        <ul class="gallery" role="list">
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
-              <figcaption><h3>Em breve</h3><p>Primeira textura da galeria.</p></figcaption>
+        <h2 class="mt-1 mb-2">🎨 Texturas para avatares</h2>
+        <p class="text-body-secondary mb-4">Texturas criadas para avatares 3D usados no VRChat.</p>
+        <ul class="gallery row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 list-unstyled">
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🖼️</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Primeira textura da galeria.</p></figcaption>
             </figure>
           </li>
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
-              <figcaption><h3>Em breve</h3><p>Espaço reservado para uma nova textura.</p></figcaption>
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🖼️</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Espaço reservado para uma nova textura.</p></figcaption>
             </figure>
           </li>
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
-              <figcaption><h3>Em breve</h3><p>Espaço reservado para uma nova textura.</p></figcaption>
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🖼️</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Espaço reservado para uma nova textura.</p></figcaption>
             </figure>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section reveal" id="mapas">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="mapas">
+      <div class="container">
         <span class="label">02 · Mapas</span>
-        <h2>🗺️ Mapas para o VRChat</h2>
-        <p class="prose">Mapas e ambientes virtuais construídos para o VRChat.</p>
-        <ul class="gallery" role="list">
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
-              <figcaption><h3>Em breve</h3><p>Primeiro mapa da galeria.</p></figcaption>
+        <h2 class="mt-1 mb-2">🗺️ Mapas para o VRChat</h2>
+        <p class="text-body-secondary mb-4">Mapas e ambientes virtuais construídos para o VRChat.</p>
+        <ul class="gallery row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3 list-unstyled">
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🌄</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Primeiro mapa da galeria.</p></figcaption>
             </figure>
           </li>
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
-              <figcaption><h3>Em breve</h3><p>Espaço reservado para um novo mapa.</p></figcaption>
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🌄</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Espaço reservado para um novo mapa.</p></figcaption>
             </figure>
           </li>
-          <li>
-            <figure class="gallery-item">
-              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
-              <figcaption><h3>Em breve</h3><p>Espaço reservado para um novo mapa.</p></figcaption>
+          <li class="col">
+            <figure class="card h-100 mb-0">
+              <div class="ratio ratio-4x3 card-img-top"><div class="gallery-empty" aria-hidden="true">🌄</div></div>
+              <figcaption class="card-body"><h3 class="h6 card-title">Em breve</h3><p class="card-text">Espaço reservado para um novo mapa.</p></figcaption>
             </figure>
           </li>
         </ul>
@@ -132,8 +138,8 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
+  <footer class="py-4 border-top text-center text-body-secondary small">
+    <div class="container">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS, JavaScript e Bootstrap · Hospedado no GitHub Pages</div>
   </footer>
 </body>
 </html>

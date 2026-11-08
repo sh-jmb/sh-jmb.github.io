@@ -21,7 +21,7 @@ export function initReveal(selector = '.reveal') {
 }
 
 // Destaca no menu o link da seção visível.
-export function initActiveNav(linkSelector = '.nav-links a') {
+export function initActiveNav(linkSelector = '.site-nav .nav-link') {
   const links = [...document.querySelectorAll(linkSelector)].filter((a) => a.getAttribute('href').startsWith('#'));
   if (!links.length || !('IntersectionObserver' in window)) return;
 

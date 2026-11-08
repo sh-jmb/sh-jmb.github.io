@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,111 +18,122 @@
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/pages.css">
   <link rel="stylesheet" href="css/animations.css">
 
   <script src="js/theme-init.js"></script>
+  <script defer src="vendor/bootstrap/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="nav" aria-label="Navegação principal">
-    <div class="wrap">
-      <a class="logo" href="index.html">&lt;sh-jmb<span>/</span>&gt;</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#formacao">Formação</a></li>
-          <li><a href="#objetivo">Objetivo</a></li>
-          <li><a href="index.html">Início</a></li>
-        </ul>
+  <nav class="navbar navbar-expand-md sticky-top site-nav" aria-label="Navegação principal">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">&lt;sh-jmb<span>/</span>&gt;</a>
+      <div class="d-flex align-items-center gap-2 order-md-last">
         <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto me-md-3">
+          <li class="nav-item"><a class="nav-link" href="#formacao">Formação</a></li>
+          <li class="nav-item"><a class="nav-link" href="#objetivo">Objetivo</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <header class="page-hero">
-    <div class="wrap">
+  <header class="hero py-5">
+    <div class="container">
       <a class="back-link" href="index.html#sobre">← Voltar ao início</a>
       <span class="label">Sobre mim</span>
-      <h1>Formação <span class="grad">e objetivo</span></h1>
-      <p>Um pouco mais sobre a minha trajetória acadêmica e onde quero chegar na área de tecnologia.</p>
+      <h1 class="mt-2">Formação <span class="grad">e objetivo</span></h1>
+      <p class="lead mt-3">Um pouco mais sobre a minha trajetória acadêmica e onde quero chegar na área de tecnologia.</p>
     </div>
   </header>
 
   <main id="conteudo">
-    <section class="section reveal" id="formacao">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="formacao">
+      <div class="container">
         <span class="label">01 · Formação</span>
-        <h2>🎓 Formação acadêmica</h2>
+        <h2 class="mt-1 mb-4">🎓 Formação acadêmica</h2>
 
         <div class="card">
-          <dl class="detail">
-            <div class="detail-row"><dt>Curso</dt><dd>Análise e Desenvolvimento de Sistemas (ADS)</dd></div>
-            <div class="detail-row"><dt>Nível</dt><dd>Graduação</dd></div>
-            <div class="detail-row"><dt>Situação</dt><dd><span class="status">Concluído · diploma a caminho</span></dd></div>
-            <!-- Para adicionar a instituição, copie uma linha acima, por exemplo:
-            <div class="detail-row"><dt>Instituição</dt><dd>Nome da faculdade</dd></div>
-            <div class="detail-row"><dt>Período</dt><dd>2023 – 2025</dd></div>
-            -->
-          </dl>
+          <div class="card-body">
+            <dl class="row detail mb-0">
+              <dt class="col-sm-3">Curso</dt><dd class="col-sm-9">Análise e Desenvolvimento de Sistemas (ADS)</dd>
+              <dt class="col-sm-3">Nível</dt><dd class="col-sm-9">Graduação</dd>
+              <dt class="col-sm-3">Situação</dt><dd class="col-sm-9"><span class="badge rounded-pill chip">Concluído · diploma a caminho</span></dd>
+              <!-- Para adicionar a instituição e o período, copie o modelo:
+              <dt class="col-sm-3">Instituição</dt><dd class="col-sm-9">Nome da faculdade</dd>
+              <dt class="col-sm-3">Período</dt><dd class="col-sm-9">2023 – 2025</dd>
+              -->
+            </dl>
+          </div>
         </div>
 
-        <h3 class="subhead">Sobre o curso</h3>
-        <div class="prose">
-          <p>O curso de Análise e Desenvolvimento de Sistemas prepara para planejar, desenvolver e manter softwares. Ele passa por lógica de programação, linguagens de programação, banco de dados, engenharia de software e desenvolvimento web.</p>
+        <h3 class="h5 mt-5 mb-3">Sobre o curso</h3>
+        <p class="text-body-secondary mw-prose">O curso de Análise e Desenvolvimento de Sistemas prepara para planejar, desenvolver e manter softwares. Ele passa por lógica de programação, linguagens de programação, banco de dados, engenharia de software e desenvolvimento web.</p>
+
+        <h3 class="h5 mt-5 mb-3">Linguagens que utilizei</h3>
+        <div class="d-flex flex-wrap gap-2">
+          <span class="badge rounded-pill chip-text px-3 py-2">Python</span>
+          <span class="badge rounded-pill chip-text px-3 py-2">C#</span>
+          <span class="badge rounded-pill chip-text px-3 py-2">C++</span>
+          <span class="badge rounded-pill chip-text px-3 py-2">HTML</span>
+          <span class="badge rounded-pill chip-text px-3 py-2">CSS</span>
+          <span class="badge rounded-pill chip-text px-3 py-2">JavaScript</span>
         </div>
 
-        <h3 class="subhead">Linguagens que utilizei</h3>
-        <ul class="chips" role="list">
-          <li>Python</li><li>C#</li><li>C++</li><li>HTML</li><li>CSS</li><li>JavaScript</li>
-        </ul>
-
-        <h3 class="subhead">Cursos e certificados</h3>
-        <div class="soon">
+        <h3 class="h5 mt-5 mb-3">Cursos e certificados</h3>
+        <div class="soon text-center p-5">
           <strong>Em breve 📜</strong>
           Cursos complementares e certificados serão listados aqui.
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="objetivo">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="objetivo">
+      <div class="container">
         <span class="label">02 · Objetivo</span>
-        <h2>🎯 Onde quero chegar</h2>
+        <h2 class="mt-1 mb-4">🎯 Onde quero chegar</h2>
 
-        <div class="prose">
-          <p>Meu objetivo é evoluir e me profissionalizar na área de programação, trabalhando com <strong>desenvolvimento de software</strong> e <strong>desenvolvimento de jogos</strong>.</p>
+        <div class="text-body-secondary">
+          <p>Meu objetivo é evoluir e me profissionalizar na área de programação, trabalhando com <strong class="text-body">desenvolvimento de software</strong> e <strong class="text-body">desenvolvimento de jogos</strong>.</p>
           <p>Quero transformar o que aprendi na graduação em projetos reais, publicados aqui no portfólio, e unir a programação com o meu interesse por criação 3D e mundos virtuais.</p>
         </div>
 
-        <h3 class="subhead">Áreas de interesse</h3>
-        <div class="grid">
-          <article class="card">
+        <h3 class="h5 mt-5 mb-3">Áreas de interesse</h3>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col"><div class="card h-100"><div class="card-body">
             <span class="icon" aria-hidden="true">💻</span>
-            <h3>Desenvolvimento de software</h3>
-            <p>Criar programas e sistemas bem estruturados, com código limpo e fácil de manter.</p>
-          </article>
-          <article class="card">
+            <h4 class="h6 card-title">Desenvolvimento de software</h4>
+            <p class="card-text">Criar programas e sistemas bem estruturados, com código limpo e fácil de manter.</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100"><div class="card-body">
             <span class="icon" aria-hidden="true">🎮</span>
-            <h3>Desenvolvimento de jogos</h3>
-            <p>Usar C# e C++ para construir jogos e experiências interativas.</p>
-          </article>
-          <article class="card">
+            <h4 class="h6 card-title">Desenvolvimento de jogos</h4>
+            <p class="card-text">Usar C# e C++ para construir jogos e experiências interativas.</p>
+          </div></div></div>
+          <div class="col"><div class="card h-100"><div class="card-body">
             <span class="icon" aria-hidden="true">🌐</span>
-            <h3>Mundos virtuais</h3>
-            <p>Unir programação com as texturas e os mapas que já crio para o VRChat.</p>
-          </article>
+            <h4 class="h6 card-title">Mundos virtuais</h4>
+            <p class="card-text">Unir programação com as texturas e os mapas que já crio para o VRChat.</p>
+          </div></div></div>
         </div>
 
-        <h3 class="subhead">Próximos passos</h3>
-        <ul class="checks">
+        <h3 class="h5 mt-5 mb-3">Próximos passos</h3>
+        <ul class="checks list-unstyled mb-0">
           <li>Publicar meu primeiro projeto de software</li>
           <li>Desenvolver um protótipo de jogo</li>
           <li>Montar uma galeria das minhas texturas e mapas</li>
@@ -131,8 +142,8 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
+  <footer class="py-4 border-top text-center text-body-secondary small">
+    <div class="container">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS, JavaScript e Bootstrap · Hospedado no GitHub Pages</div>
   </footer>
 </body>
 </html>

@@ -1,86 +1,82 @@
 /* ==========================================================
-   Componentes de interface (UI)
+   Componentes: personalização dos componentes do Bootstrap
+   e componentes próprios do portfólio
    ========================================================== */
 
-/* Logo */
-.logo { font-family: var(--font-mono); font-weight: 500; text-decoration: none; }
-.logo span { color: var(--accent); }
+/* Navbar */
+.site-nav {
+  backdrop-filter: blur(12px);
+  background: color-mix(in srgb, var(--bg) 82%, transparent);
+  border-bottom: 1px solid var(--line);
+  min-height: var(--nav-height);
+}
+.site-nav .navbar-brand { font-family: var(--font-mono); font-weight: 500; font-size: 1rem; }
+.site-nav .navbar-brand span { color: var(--accent); }
+.site-nav .nav-link { color: var(--muted); font-size: .92rem; }
+.site-nav .nav-link:hover, .site-nav .nav-link[aria-current] { color: var(--text); }
 
 /* Botão de tema */
 .theme-btn {
-  display: grid; place-items: center;
-  width: 38px; height: 38px;
+  display: grid; place-items: center; width: 38px; height: 38px;
   border-radius: 10px; border: 1px solid var(--line);
-  background: var(--surface); color: var(--text);
-  cursor: pointer; font-size: 1.05rem; line-height: 1;
+  background: var(--surface); color: var(--text); font-size: 1.05rem; line-height: 1;
 }
 .theme-btn:hover { border-color: var(--accent); }
 
-/* Etiqueta do topo */
-.tag {
-  display: inline-block; margin-bottom: 22px;
-  font-family: var(--font-mono); font-size: .82rem; color: var(--accent);
-  background: var(--chip); padding: var(--space-1) 12px; border-radius: var(--radius-pill);
+/* Botões do Bootstrap com as cores do portfólio */
+.btn-primary {
+  --bs-btn-bg: var(--accent); --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-bg: var(--accent-hover); --bs-btn-hover-border-color: var(--accent-hover);
+  --bs-btn-active-bg: var(--accent-hover); --bs-btn-active-border-color: var(--accent-hover);
+  --bs-btn-focus-shadow-rgb: var(--accent-rgb);
 }
-
-/* Título com degradê */
-.grad {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
+.btn-outline-secondary {
+  --bs-btn-color: var(--text); --bs-btn-border-color: var(--line);
+  --bs-btn-hover-bg: var(--surface); --bs-btn-hover-color: var(--text); --bs-btn-hover-border-color: var(--accent);
+  --bs-btn-active-bg: var(--surface); --bs-btn-active-color: var(--text);
 }
+.btn { font-weight: 600; }
 
-/* Botões */
-.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: var(--space-6); }
-.btn {
-  display: inline-flex; align-items: center; gap: 8px;
-  padding: 12px var(--space-4); border-radius: 10px; border: 1px solid var(--line);
-  font-weight: 600; font-size: .95rem; text-decoration: none;
+/* Etiqueta e "chips" (usam o .badge do Bootstrap) */
+.chip { background: var(--chip); color: var(--accent); font-family: var(--font-mono); font-weight: 500; }
+.chip-text { background: var(--chip); color: var(--text); font-weight: 500; }
+
+/* Cards do Bootstrap */
+.card {
+  --bs-card-bg: var(--surface);
+  --bs-card-border-color: var(--line);
+  --bs-card-border-radius: .875rem;
+  --bs-card-spacer-y: 1.35rem;
+  --bs-card-spacer-x: 1.35rem;
 }
-.btn--primary { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
-
-/* Rótulo de seção */
-.label { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--accent); text-transform: uppercase; letter-spacing: .08em; }
-
-/* Cards */
-.card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); padding: 22px; }
-.card p { color: var(--muted); font-size: .95rem; }
-.icon { display: block; font-size: 1.5rem; margin-bottom: var(--space-2); }
-
-/* Tecnologias */
-.skills { list-style: none; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.skill {
-  background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-md);
-  padding: 18px;
-}
-.skill__head { display: flex; align-items: center; gap: 12px; margin-bottom: var(--space-2); }
-.skill__head h3 { margin: 0; }
-.skill p { color: var(--muted); font-size: .95rem; }
-.skill__icon {
-  display: grid; place-items: center; width: 36px; height: 36px;
-  border-radius: var(--radius-sm); color: #fff;
-  font-family: var(--font-mono); font-size: var(--fs-xs);
-}
-.skill--python .skill__icon { background: var(--c-python); }
-.skill--csharp .skill__icon { background: var(--c-csharp); }
-.skill--cpp .skill__icon { background: var(--c-cpp); }
-.skill--html .skill__icon { background: var(--c-html); }
-.skill--css .skill__icon { background: var(--c-css); }
-.skill--js .skill__icon { background: var(--c-js); color: #1a1a1a; }
-
-/* "Em breve" */
-.soon { text-align: center; border: 1px dashed var(--line); border-radius: var(--radius-lg); padding: 44px var(--space-4); color: var(--muted); }
-.soon strong { display: block; color: var(--text); font-size: 1.15rem; margin-bottom: var(--space-1); }
-
-/* Checklist */
-.checks { list-style: none; display: grid; gap: var(--space-2); }
-.checks li { display: flex; gap: 12px; align-items: flex-start; }
-.checks li::before {
-  content: ""; flex: none; margin-top: var(--space-1);
-  width: 14px; height: 14px; border: 2px solid var(--accent); border-radius: 4px;
-}
+.card-text { color: var(--muted); font-size: .95rem; }
+.card .icon { display: block; font-size: 1.5rem; margin-bottom: .6rem; }
 
 /* Card clicável (leva a outra página) */
-.card--link { display: block; color: inherit; text-decoration: none; }
-.card__more { display: inline-block; margin-top: 12px; font-size: var(--fs-sm); font-weight: 600; color: var(--accent); }
+.card-link-block { color: inherit; text-decoration: none; }
+.card__more { display: inline-block; margin-top: .75rem; font-size: .92rem; font-weight: 600; color: var(--accent); }
 .card__more::after { content: " →"; display: inline-block; transition: transform var(--dur-fast) var(--ease); }
-.card--link:hover .card__more::after { transform: translateX(4px); }
+.card-link-block:hover .card__more::after { transform: translateX(4px); }
+
+/* Ícones das tecnologias */
+.skill-icon {
+  display: grid; place-items: center; flex: none; width: 36px; height: 36px;
+  border-radius: .5rem; color: #fff; font-family: var(--font-mono); font-size: .8rem;
+}
+.skill--python .skill-icon { background: var(--c-python); }
+.skill--csharp .skill-icon { background: var(--c-csharp); }
+.skill--cpp .skill-icon { background: var(--c-cpp); }
+.skill--html .skill-icon { background: var(--c-html); }
+.skill--css .skill-icon { background: var(--c-css); }
+.skill--js .skill-icon { background: var(--c-js); color: #1a1a1a; }
+
+/* "Em breve" */
+.soon { border: 1px dashed var(--line); border-radius: .875rem; color: var(--muted); }
+.soon strong { display: block; color: var(--text); font-size: 1.15rem; margin-bottom: .4rem; }
+
+/* Checklist */
+.checks li { display: flex; gap: .75rem; align-items: flex-start; margin-bottom: .6rem; }
+.checks li::before {
+  content: ""; flex: none; margin-top: .4rem; width: 14px; height: 14px;
+  border: 2px solid var(--accent); border-radius: 4px;
+}

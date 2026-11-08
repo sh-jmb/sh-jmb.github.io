@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-bs-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,146 +23,186 @@
   <!-- Fontes -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
 
-  <!-- Estilos (a ordem importa) -->
+  <!-- Bootstrap 5.3.3 (arquivos locais, verificados por hash) -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
+
+  <!-- Estilos do portfólio (depois do Bootstrap, para personalizá-lo) -->
   <link rel="stylesheet" href="css/tokens.css">
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/layout.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
 
   <!-- Tema salvo (precisa rodar antes da página aparecer) -->
   <script src="js/theme-init.js"></script>
+  <script defer src="vendor/bootstrap/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"></script>
   <script type="module" src="js/main.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-  <nav class="nav" aria-label="Navegação principal">
-    <div class="wrap">
-      <a class="logo" href="#">&lt;sh-jmb<span>/</span>&gt;</a>
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#sobre">Sobre</a></li>
-          <li><a href="#tecnologias">Tecnologias</a></li>
-          <li><a href="#projetos">Projetos</a></li>
-          <li><a href="#criacoes">Criações</a></li>
-        </ul>
+  <nav class="navbar navbar-expand-md sticky-top site-nav" aria-label="Navegação principal">
+    <div class="container">
+      <a class="navbar-brand" href="#">&lt;sh-jmb<span>/</span>&gt;</a>
+      <div class="d-flex align-items-center gap-2 order-md-last">
         <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menu">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto me-md-3">
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tecnologias">Tecnologias</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projetos">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#criacoes">Criações</a></li>
+        </ul>
       </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <div class="wrap">
-      <span class="tag">// formando em ADS</span>
+  <header class="hero py-5 my-md-4">
+    <div class="container">
+      <span class="badge rounded-pill chip mb-4 px-3 py-2">// formando em ADS</span>
       <h1>Joseph Monteiro<br><span class="grad">desenvolvedor de software e jogos</span></h1>
-      <p>Concluí a graduação em Análise e Desenvolvimento de Sistemas e estou começando minha carreira em programação de software e desenvolvimento de jogos.</p>
-      <div class="cta">
-        <a class="btn btn--primary" href="#projetos">Ver projetos</a>
-        <a class="btn" href="https://github.com/sh-jmb" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <p class="lead mt-4">Concluí a graduação em Análise e Desenvolvimento de Sistemas e estou começando minha carreira em programação de software e desenvolvimento de jogos.</p>
+      <div class="d-flex flex-wrap gap-3 mt-4">
+        <a class="btn btn-primary btn-lg px-4" href="#projetos">Ver projetos</a>
+        <a class="btn btn-outline-secondary btn-lg px-4" href="https://github.com/sh-jmb" target="_blank" rel="noopener noreferrer">GitHub</a>
       </div>
     </div>
   </header>
 
   <main id="conteudo">
-    <section class="section reveal" id="sobre">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="sobre">
+      <div class="container">
         <span class="label">01 · Sobre</span>
-        <h2>Quem sou eu</h2>
-        <div class="grid">
-          <a class="card card--link" href="sobre.html#formacao">
-            <span class="icon" aria-hidden="true">🎓</span>
-            <h3>Formação</h3>
-            <p>Graduação em Análise e Desenvolvimento de Sistemas concluída, com o diploma a caminho.</p>
-            <span class="card__more">Ver formação</span>
-          </a>
-          <a class="card card--link" href="sobre.html#objetivo">
-            <span class="icon" aria-hidden="true">🎯</span>
-            <h3>Objetivo</h3>
-            <p>Evoluir e me profissionalizar na área de programação, com foco em software e jogos.</p>
-            <span class="card__more">Ver objetivo</span>
-          </a>
-          <article class="card">
-            <span class="icon" aria-hidden="true">🇧🇷</span>
-            <h3>Localização</h3>
-            <p>Brasil.</p>
-          </article>
+        <h2 class="mt-1 mb-4">Quem sou eu</h2>
+        <div class="row row-cols-1 row-cols-md-3 g-3">
+          <div class="col">
+            <a class="card card-link-block h-100" href="sobre.html#formacao">
+              <div class="card-body">
+                <span class="icon" aria-hidden="true">🎓</span>
+                <h3 class="h5 card-title">Formação</h3>
+                <p class="card-text">Graduação em Análise e Desenvolvimento de Sistemas concluída, com o diploma a caminho.</p>
+                <span class="card__more">Ver formação</span>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a class="card card-link-block h-100" href="sobre.html#objetivo">
+              <div class="card-body">
+                <span class="icon" aria-hidden="true">🎯</span>
+                <h3 class="h5 card-title">Objetivo</h3>
+                <p class="card-text">Evoluir e me profissionalizar na área de programação, com foco em software e jogos.</p>
+                <span class="card__more">Ver objetivo</span>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <div class="card h-100">
+              <div class="card-body">
+                <span class="icon" aria-hidden="true">🇧🇷</span>
+                <h3 class="h5 card-title">Localização</h3>
+                <p class="card-text">Brasil.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="tecnologias">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="tecnologias">
+      <div class="container">
         <span class="label">02 · Tecnologias</span>
-        <h2>Tecnologias que já utilizei</h2>
-        <ul class="skills" role="list">
-          <li class="skill skill--python">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">Py</span><h3>Python</h3></div>
-            <p>Linguagem de escrita simples e fácil de ler. Muito usada em automação de tarefas, análise de dados, inteligência artificial e sistemas web.</p>
+        <h2 class="mt-1 mb-4">Tecnologias que já utilizei</h2>
+        <ul class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-3 list-unstyled">
+          <li class="col">
+            <div class="card h-100 skill--python"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">Py</span><h3 class="h5 mb-0">Python</h3></div>
+              <p class="card-text">Linguagem de escrita simples e fácil de ler. Muito usada em automação de tarefas, análise de dados, inteligência artificial e sistemas web.</p>
+            </div></div>
           </li>
-          <li class="skill skill--csharp">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">C#</span><h3>C#</h3></div>
-            <p>Linguagem da Microsoft, da plataforma .NET. Usada em programas para Windows, sistemas web e no desenvolvimento de jogos com a Unity.</p>
+          <li class="col">
+            <div class="card h-100 skill--csharp"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">C#</span><h3 class="h5 mb-0">C#</h3></div>
+              <p class="card-text">Linguagem da Microsoft, da plataforma .NET. Usada em programas para Windows, sistemas web e no desenvolvimento de jogos com a Unity.</p>
+            </div></div>
           </li>
-          <li class="skill skill--cpp">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">C++</span><h3>C++</h3></div>
-            <p>Linguagem de alto desempenho. Usada onde a velocidade importa: motores de jogos, como a Unreal Engine, sistemas e programas pesados.</p>
+          <li class="col">
+            <div class="card h-100 skill--cpp"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">C++</span><h3 class="h5 mb-0">C++</h3></div>
+              <p class="card-text">Linguagem de alto desempenho. Usada onde a velocidade importa: motores de jogos, como a Unreal Engine, sistemas e programas pesados.</p>
+            </div></div>
           </li>
-          <li class="skill skill--html">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">&lt;/&gt;</span><h3>HTML</h3></div>
-            <p>Linguagem de marcação que monta a estrutura das páginas da web: títulos, textos, imagens, links e seções.</p>
+          <li class="col">
+            <div class="card h-100 skill--html"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">&lt;/&gt;</span><h3 class="h5 mb-0">HTML</h3></div>
+              <p class="card-text">Linguagem de marcação que monta a estrutura das páginas da web: títulos, textos, imagens, links e seções.</p>
+            </div></div>
           </li>
-          <li class="skill skill--css">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">{ }</span><h3>CSS</h3></div>
-            <p>Define a aparência das páginas: cores, fontes, tamanhos, posicionamento, layout para celular e animações.</p>
+          <li class="col">
+            <div class="card h-100 skill--css"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">{ }</span><h3 class="h5 mb-0">CSS</h3></div>
+              <p class="card-text">Define a aparência das páginas: cores, fontes, tamanhos, posicionamento, layout para celular e animações.</p>
+            </div></div>
           </li>
-          <li class="skill skill--js">
-            <div class="skill__head"><span class="skill__icon" aria-hidden="true">JS</span><h3>JavaScript</h3></div>
-            <p>Dá vida às páginas com interatividade, como o botão de modo claro/escuro deste site. Também roda em servidores, com o Node.js.</p>
+          <li class="col">
+            <div class="card h-100 skill--js"><div class="card-body">
+              <div class="d-flex align-items-center gap-3 mb-2"><span class="skill-icon" aria-hidden="true">JS</span><h3 class="h5 mb-0">JavaScript</h3></div>
+              <p class="card-text">Dá vida às páginas com interatividade, como o botão de modo claro/escuro deste site. Também roda em servidores, com o Node.js.</p>
+            </div></div>
           </li>
         </ul>
       </div>
     </section>
 
-    <section class="section reveal" id="projetos">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="projetos">
+      <div class="container">
         <span class="label">03 · Projetos</span>
-        <h2>Projetos</h2>
-        <div class="soon">
+        <h2 class="mt-1 mb-4">Projetos</h2>
+        <div class="soon text-center p-5">
           <strong>Em breve 🚧</strong>
           Meus primeiros projetos de software e de jogos serão publicados aqui.
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="criacoes">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="criacoes">
+      <div class="container">
         <span class="label">04 · Criações</span>
-        <h2>Fora do código</h2>
-        <div class="grid">
-          <a class="card card--link" href="criacoes.html#texturas">
-            <span class="icon" aria-hidden="true">🎨</span>
-            <h3>Texturas para avatares</h3>
-            <p>Criação de texturas para avatares 3D usados no VRChat.</p>
-            <span class="card__more">Ver galeria</span>
-          </a>
-          <a class="card card--link" href="criacoes.html#mapas">
-            <span class="icon" aria-hidden="true">🗺️</span>
-            <h3>Mapas para o VRChat</h3>
-            <p>Construção de mapas e ambientes virtuais para o VRChat.</p>
-            <span class="card__more">Ver galeria</span>
-          </a>
+        <h2 class="mt-1 mb-4">Fora do código</h2>
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+          <div class="col">
+            <a class="card card-link-block h-100" href="criacoes.html#texturas">
+              <div class="card-body">
+                <span class="icon" aria-hidden="true">🎨</span>
+                <h3 class="h5 card-title">Texturas para avatares</h3>
+                <p class="card-text">Criação de texturas para avatares 3D usados no VRChat.</p>
+                <span class="card__more">Ver galeria</span>
+              </div>
+            </a>
+          </div>
+          <div class="col">
+            <a class="card card-link-block h-100" href="criacoes.html#mapas">
+              <div class="card-body">
+                <span class="icon" aria-hidden="true">🗺️</span>
+                <h3 class="h5 card-title">Mapas para o VRChat</h3>
+                <p class="card-text">Construção de mapas e ambientes virtuais para o VRChat.</p>
+                <span class="card__more">Ver galeria</span>
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section reveal" id="proximos">
-      <div class="wrap">
+    <section class="py-5 border-top reveal" id="proximos">
+      <div class="container">
         <span class="label">05 · Próximos passos</span>
-        <h2>No que estou trabalhando</h2>
-        <ul class="checks">
+        <h2 class="mt-1 mb-4">No que estou trabalhando</h2>
+        <ul class="checks list-unstyled mb-0">
           <li>Publicar meu primeiro projeto de software</li>
           <li>Desenvolver um protótipo de jogo</li>
           <li>Montar uma galeria das minhas texturas e mapas</li>
@@ -171,8 +211,8 @@
     </section>
   </main>
 
-  <footer class="footer">
-    <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
+  <footer class="py-4 border-top text-center text-body-secondary small">
+    <div class="container">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS, JavaScript e Bootstrap · Hospedado no GitHub Pages</div>
   </footer>
 </body>
 </html>
