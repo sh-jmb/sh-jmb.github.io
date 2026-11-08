@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+
+  <title>Criações | Joseph Monteiro</title>
+  <meta name="description" content="Galeria de texturas para avatares e mapas para o VRChat criados por Joseph Monteiro.">
+  <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d14" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Criações | Joseph Monteiro">
+  <meta property="og:url" content="https://sh-jmb.github.io/criacoes.html">
+  <meta property="og:locale" content="pt_BR">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/pages.css">
+  <link rel="stylesheet" href="css/animations.css">
+
+  <script src="js/theme-init.js"></script>
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <nav class="nav" aria-label="Navegação principal">
+    <div class="wrap">
+      <a class="logo" href="index.html">&lt;sh-jmb<span>/</span>&gt;</a>
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="#texturas">Texturas</a></li>
+          <li><a href="#mapas">Mapas</a></li>
+          <li><a href="index.html">Início</a></li>
+        </ul>
+        <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="wrap">
+      <a class="back-link" href="index.html#criacoes">← Voltar ao início</a>
+      <span class="label">Fora do código</span>
+      <h1>Minhas <span class="grad">criações</span></h1>
+      <p>Texturas para avatares e mapas que crio para o VRChat.</p>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!--
+      COMO ADICIONAR UMA CRIAÇÃO
+      1. Salve a imagem em assets/criacoes/texturas/ ou assets/criacoes/mapas/
+         (de preferência .webp, com uns 1200px de largura e até ~300 KB).
+      2. Troque um item "Em breve" pelo modelo abaixo:
+
+      <li>
+        <figure class="gallery-item">
+          <img src="assets/criacoes/texturas/nome-da-imagem.webp" alt="Descrição curta da imagem"
+               width="1200" height="900" loading="lazy" decoding="async">
+          <figcaption>
+            <h3>Nome da criação</h3>
+            <p>Descrição: o que é, ferramentas usadas, detalhes interessantes.</p>
+          </figcaption>
+        </figure>
+      </li>
+    -->
+
+    <section class="section reveal" id="texturas">
+      <div class="wrap">
+        <span class="label">01 · Texturas</span>
+        <h2>🎨 Texturas para avatares</h2>
+        <p class="prose">Texturas criadas para avatares 3D usados no VRChat.</p>
+        <ul class="gallery" role="list">
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
+              <figcaption><h3>Em breve</h3><p>Primeira textura da galeria.</p></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
+              <figcaption><h3>Em breve</h3><p>Espaço reservado para uma nova textura.</p></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🖼️</div>
+              <figcaption><h3>Em breve</h3><p>Espaço reservado para uma nova textura.</p></figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section reveal" id="mapas">
+      <div class="wrap">
+        <span class="label">02 · Mapas</span>
+        <h2>🗺️ Mapas para o VRChat</h2>
+        <p class="prose">Mapas e ambientes virtuais construídos para o VRChat.</p>
+        <ul class="gallery" role="list">
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
+              <figcaption><h3>Em breve</h3><p>Primeiro mapa da galeria.</p></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
+              <figcaption><h3>Em breve</h3><p>Espaço reservado para um novo mapa.</p></figcaption>
+            </figure>
+          </li>
+          <li>
+            <figure class="gallery-item">
+              <div class="gallery-thumb--empty" aria-hidden="true">🌄</div>
+              <figcaption><h3>Em breve</h3><p>Espaço reservado para um novo mapa.</p></figcaption>
+            </figure>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
+  </footer>
+</body>
+</html>

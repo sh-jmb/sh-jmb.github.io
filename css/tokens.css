@@ -1,0 +1,93 @@
+/* ==========================================================
+   Tokens de design: cores, fontes, tamanhos, espaçamentos,
+   raios, sombras e tempos de animação.
+   Para mudar o visual do site inteiro, edite apenas aqui.
+   ========================================================== */
+
+:root {
+  /* Fontes */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Tamanhos de texto */
+  --fs-xs: .8rem;
+  --fs-sm: .92rem;
+  --fs-base: 1rem;
+  --fs-lg: 1.12rem;
+  --fs-h3: 1.05rem;
+  --fs-h2: 1.8rem;
+  --fs-h1: clamp(2.3rem, 6vw, 3.8rem);
+
+  /* Espaçamentos */
+  --space-1: 6px;
+  --space-2: 10px;
+  --space-3: 16px;
+  --space-4: 20px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 56px;
+  --space-8: 96px;
+
+  /* Raios e sombras */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 14px;
+  --radius-pill: 999px;
+  --shadow-card: 0 8px 24px -12px rgb(0 0 0 / .25);
+
+  /* Movimento */
+  --dur-fast: .2s;
+  --dur-med: .6s;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Layout */
+  --max-width: 960px;
+  --nav-height: 60px;
+
+  /* Cores fixas das tecnologias */
+  --c-python: #3776ab;
+  --c-csharp: #512bd4;
+  --c-cpp: #00599c;
+  --c-html: #e34f26;
+  --c-css: #1572b6;
+  --c-js: #f7df1e;
+
+  /* Tema claro (padrão) */
+  --bg: #f6f5fb;
+  --surface: #ffffff;
+  --text: #17151f;
+  --muted: #5d5a6b;
+  --line: #e3e0ee;
+  --accent: #6d4aff;
+  --accent-2: #e0408a;
+  --chip: #efebff;
+  --on-accent: #ffffff;
+}
+
+/* Tema escuro: segue o sistema, a menos que a pessoa tenha escolhido o claro */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0d14;
+    --surface: #17151f;
+    --text: #f1effa;
+    --muted: #a19db3;
+    --line: #2a2737;
+    --accent: #9c85ff;
+    --accent-2: #ff6fb0;
+    --chip: #221e33;
+    --shadow-card: 0 8px 24px -12px rgb(0 0 0 / .6);
+  }
+}
+
+/* Tema escuro escolhido no botão */
+:root[data-theme="dark"] {
+  --bg: #0e0d14;
+  --surface: #17151f;
+  --text: #f1effa;
+  --muted: #a19db3;
+  --line: #2a2737;
+  --accent: #9c85ff;
+  --accent-2: #ff6fb0;
+  --chip: #221e33;
+  --shadow-card: 0 8px 24px -12px rgb(0 0 0 / .6);
+}

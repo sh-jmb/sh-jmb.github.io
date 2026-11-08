@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Joseph Monteiro | Portfólio</title>
+<meta name="description" content="Portfólio de Joseph Monteiro, formando em Análise e Desenvolvimento de Sistemas, com foco em desenvolvimento de software e de jogos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<script>try{var t=localStorage.getItem('tema');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t;}catch(e){}</script>
+<style>
+:root{
+  --bg:#f6f5fb; --surface:#ffffff; --text:#17151f; --muted:#5d5a6b; --line:#e3e0ee;
+  --accent:#6d4aff; --accent-2:#e0408a; --chip:#efebff;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0e0d14; --surface:#17151f; --text:#f1effa; --muted:#a19db3; --line:#2a2737;
+    --accent:#9c85ff; --accent-2:#ff6fb0; --chip:#221e33;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0e0d14; --surface:#17151f; --text:#f1effa; --muted:#a19db3; --line:#2a2737;
+  --accent:#9c85ff; --accent-2:#ff6fb0; --chip:#221e33;
+}
+:root{color-scheme:light dark}
+:root[data-theme="light"]{color-scheme:light}
+:root[data-theme="dark"]{color-scheme:dark}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+
+/* Navegação */
+nav{position:sticky;top:0;z-index:10;backdrop-filter:blur(12px);background:color-mix(in srgb,var(--bg) 82%,transparent);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px;gap:16px}
+.logo{font-family:"JetBrains Mono",monospace;font-weight:500;text-decoration:none}
+.logo span{color:var(--accent)}
+nav ul{display:flex;gap:20px;list-style:none;font-size:.92rem}
+nav ul a{text-decoration:none;color:var(--muted)}
+nav ul a:hover{color:var(--text)}
+.nav-right{display:flex;align-items:center;gap:20px}
+.theme-btn{display:grid;place-items:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);cursor:pointer;font-size:1.05rem;line-height:1}
+.theme-btn:hover{border-color:var(--accent)}
+.theme-btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+body,.card,.skill,nav,.theme-btn{transition:background-color .25s,border-color .25s,color .25s}
+
+/* Topo */
+.hero{padding:96px 0 72px}
+.tag{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.82rem;color:var(--accent);background:var(--chip);padding:6px 12px;border-radius:999px;margin-bottom:22px}
+h1{font-size:clamp(2.3rem,6vw,3.8rem);line-height:1.08;font-weight:800;letter-spacing:-.03em}
+h1 .grad{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero p{margin-top:20px;font-size:1.12rem;color:var(--muted);max-width:620px}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:10px;font-weight:600;text-decoration:none;font-size:.95rem;border:1px solid var(--line)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+.btn:hover{transform:translateY(-1px)}
+
+/* Seções */
+section{padding:56px 0;border-top:1px solid var(--line)}
+.label{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--accent);text-transform:uppercase;letter-spacing:.08em}
+h2{font-size:1.8rem;font-weight:700;letter-spacing:-.02em;margin:6px 0 24px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.card h3{font-size:1.05rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.95rem}
+.icon{font-size:1.5rem;margin-bottom:10px;display:block}
+
+.skills{display:flex;flex-wrap:wrap;gap:12px}
+.skill{display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 18px;font-weight:600}
+.skill i{font-style:normal;font-family:"JetBrains Mono",monospace;font-size:.8rem;color:#fff;border-radius:8px;width:36px;height:36px;display:grid;place-items:center}
+
+.timeline{border-left:2px solid var(--line);padding-left:22px;display:grid;gap:22px}
+.timeline div{position:relative}
+.timeline div::before{content:"";position:absolute;left:-29px;top:7px;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--bg)}
+.timeline small{color:var(--muted);font-family:"JetBrains Mono",monospace;font-size:.8rem}
+
+.soon{text-align:center;border:1px dashed var(--line);border-radius:14px;padding:44px 20px;color:var(--muted)}
+.soon strong{display:block;color:var(--text);font-size:1.15rem;margin-bottom:6px}
+
+ul.checks{list-style:none;display:grid;gap:10px}
+ul.checks li{display:flex;gap:12px;align-items:flex-start}
+ul.checks li::before{content:"";flex:none;margin-top:6px;width:14px;height:14px;border:2px solid var(--accent);border-radius:4px}
+
+footer{border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.88rem;text-align:center}
+
+@media (max-width:640px){
+  nav ul{display:none}
+  .hero{padding:64px 0 48px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="logo" href="#">&lt;sh-jmb<span>/</span>&gt;</a>
+    <div class="nav-right">
+      <ul>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#tecnologias">Tecnologias</a></li>
+        <li><a href="#projetos">Projetos</a></li>
+        <li><a href="#criacoes">Criações</a></li>
+      </ul>
+      <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="tag">// formando em ADS</span>
+    <h1>Joseph Monteiro<br><span class="grad">desenvolvedor de software e jogos</span></h1>
+    <p>Concluí a graduação em Análise e Desenvolvimento de Sistemas e estou começando minha carreira em programação de software e desenvolvimento de jogos.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn" href="https://github.com/sh-jmb">GitHub</a>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="sobre">
+    <div class="wrap">
+      <span class="label">01 · Sobre</span>
+      <h2>Quem sou eu</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="icon">🎓</span>
+          <h3>Formação</h3>
+          <p>Graduação em Análise e Desenvolvimento de Sistemas concluída, com o diploma a caminho.</p>
+        </div>
+        <div class="card">
+          <span class="icon">🎯</span>
+          <h3>Objetivo</h3>
+          <p>Evoluir e me profissionalizar na área de programação, com foco em software e jogos.</p>
+        </div>
+        <div class="card">
+          <span class="icon">🇧🇷</span>
+          <h3>Localização</h3>
+          <p>Brasil.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="tecnologias">
+    <div class="wrap">
+      <span class="label">02 · Tecnologias</span>
+      <h2>Tecnologias que já utilizei</h2>
+      <div class="skills">
+        <div class="skill"><i style="background:#3776ab">Py</i>Python</div>
+        <div class="skill"><i style="background:#512bd4">C#</i>C#</div>
+        <div class="skill"><i style="background:#00599c">C++</i>C++</div>
+        <div class="skill"><i style="background:#e34f26">&lt;/&gt;</i>HTML</div>
+        <div class="skill"><i style="background:#1572b6">{ }</i>CSS</div>
+        <div class="skill"><i style="background:#f7df1e;color:#1a1a1a">JS</i>JavaScript</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <span class="label">03 · Projetos</span>
+      <h2>Projetos</h2>
+      <div class="soon">
+        <strong>Em breve 🚧</strong>
+        Meus primeiros projetos de software e de jogos serão publicados aqui.
+      </div>
+    </div>
+  </section>
+
+  <section id="criacoes">
+    <div class="wrap">
+      <span class="label">04 · Criações</span>
+      <h2>Fora do código</h2>
+      <div class="grid">
+        <div class="card">
+          <span class="icon">🎨</span>
+          <h3>Texturas para avatares</h3>
+          <p>Criação de texturas para avatares 3D usados no VRChat.</p>
+        </div>
+        <div class="card">
+          <span class="icon">🗺️</span>
+          <h3>Mapas para o VRChat</h3>
+          <p>Construção de mapas e ambientes virtuais para o VRChat.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proximos">
+    <div class="wrap">
+      <span class="label">05 · Próximos passos</span>
+      <h2>No que estou trabalhando</h2>
+      <ul class="checks">
+        <li>Publicar meu primeiro projeto de software</li>
+        <li>Desenvolver um protótipo de jogo</li>
+        <li>Montar uma galeria das minhas texturas e mapas</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="ano">2026</span> Joseph Monteiro · Feito com HTML, CSS e JavaScript · Hospedado no GitHub Pages</div>
+</footer>
+
+<script>
+document.getElementById('ano').textContent = new Date().getFullYear();
+
+// Modo claro/escuro: segue o sistema até a pessoa escolher, e lembra a escolha
+(function(){
+  var root = document.documentElement;
+  var btn = document.getElementById('tema');
+  var media = window.matchMedia('(prefers-color-scheme: dark)');
+  function atual(){ return root.dataset.theme || (media.matches ? 'dark' : 'light'); }
+  function atualizarBotao(){
+    var escuro = atual() === 'dark';
+    btn.textContent = escuro ? '☀️' : '🌙';
+    btn.setAttribute('aria-label', escuro ? 'Ativar modo claro' : 'Ativar modo escuro');
+    btn.title = btn.getAttribute('aria-label');
+  }
+  btn.addEventListener('click', function(){
+    var novo = atual() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = novo;
+    try { localStorage.setItem('tema', novo); } catch(e) {}
+    atualizarBotao();
+  });
+  media.addEventListener('change', atualizarBotao);
+  atualizarBotao();
+})();
+</script>
+</body>
+</html>

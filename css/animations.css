@@ -1,0 +1,36 @@
+/* ==========================================================
+   Animações e transições
+   Usa só transform e opacity (leves para o navegador).
+   ========================================================== */
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* Entrada do topo ao carregar */
+.hero .wrap > *, .page-hero .wrap > * { animation: fade-up var(--dur-med) var(--ease) both; }
+:is(.hero, .page-hero) .wrap > :nth-child(2) { animation-delay: .08s; }
+:is(.hero, .page-hero) .wrap > :nth-child(3) { animation-delay: .16s; }
+:is(.hero, .page-hero) .wrap > :nth-child(4) { animation-delay: .24s; }
+
+/* Seções que aparecem ao rolar (só esconde se o JavaScript estiver ativo) */
+.js .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease); }
+.js .reveal.is-visible { opacity: 1; transform: none; }
+
+/* Hover */
+.gallery-item { transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast), box-shadow var(--dur-fast); }
+.gallery-item:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-card); }
+.btn, .card, .skill { transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast), box-shadow var(--dur-fast); }
+.btn:hover { transform: translateY(-1px); }
+.card:hover, .skill:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-card); }
+
+/* Transição suave ao trocar o tema */
+body, .nav, .theme-btn { transition: background-color .25s, border-color .25s, color .25s; }
+
+/* Respeita quem pediu menos movimento no sistema */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .js .reveal { opacity: 1; transform: none; }
+}

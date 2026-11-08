@@ -1,0 +1,37 @@
+/* ==========================================================
+   Estilos das páginas internas (sobre.html, criacoes.html)
+   ========================================================== */
+
+/* Topo menor das páginas internas */
+.page-hero { padding: var(--space-7) 0 40px; }
+.page-hero p { margin-top: var(--space-3); font-size: var(--fs-lg); color: var(--muted); max-width: 640px; }
+.back-link { display: block; width: fit-content; margin-bottom: var(--space-4); color: var(--muted); text-decoration: none; font-size: var(--fs-sm); }
+.back-link:hover { color: var(--accent); }
+
+/* Bloco de detalhes (formação/objetivo) */
+.detail { display: grid; gap: var(--space-3); }
+.detail-row { display: grid; grid-template-columns: 180px 1fr; gap: var(--space-3); padding: var(--space-3) 0; border-bottom: 1px solid var(--line); }
+.detail-row:last-child { border-bottom: 0; }
+.detail-row dt { color: var(--muted); font-size: var(--fs-sm); }
+.detail-row dd { font-weight: 500; }
+.status { display: inline-block; font-size: var(--fs-xs); font-family: var(--font-mono); color: var(--accent); background: var(--chip); padding: 2px 10px; border-radius: var(--radius-pill); }
+.prose { color: var(--muted); max-width: 720px; display: grid; gap: var(--space-3); }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { background: var(--chip); color: var(--text); border-radius: var(--radius-pill); padding: 4px 12px; font-size: var(--fs-sm); }
+.subhead { font-size: var(--fs-h3); margin: var(--space-6) 0 var(--space-3); }
+
+/* Galeria (texturas e mapas) */
+.gallery { margin-top: var(--space-5); list-style: none; display: grid; gap: var(--space-3); grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
+.gallery-item { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); overflow: hidden; }
+.gallery-item img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; }
+.gallery-item figcaption { padding: var(--space-3); }
+.gallery-item figcaption p { color: var(--muted); font-size: .95rem; }
+.gallery-thumb--empty {
+  display: grid; place-items: center; aspect-ratio: 4 / 3;
+  background: var(--chip); color: var(--muted); font-size: 2rem;
+  border-bottom: 1px dashed var(--line);
+}
+
+@media (max-width: 640px) {
+  .detail-row { grid-template-columns: 1fr; gap: 4px; }
+}

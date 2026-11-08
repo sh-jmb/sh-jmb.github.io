@@ -1,0 +1,40 @@
+/* ==========================================================
+   Base: reset, tipografia e acessibilidade
+   ========================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root { color-scheme: light dark; }
+:root[data-theme="light"] { color-scheme: light; }
+:root[data-theme="dark"] { color-scheme: dark; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--nav-height); }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a { color: inherit; }
+
+h1 { font-size: var(--fs-h1); line-height: 1.08; font-weight: 800; letter-spacing: -.03em; }
+h2 { font-size: var(--fs-h2); font-weight: 700; letter-spacing: -.02em; margin: var(--space-1) 0 var(--space-5); }
+h3 { font-size: var(--fs-h3); margin-bottom: var(--space-1); }
+
+::selection { background: var(--accent); color: var(--on-accent); }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+
+/* Link "pular para o conteúdo" (aparece só ao navegar pelo teclado) */
+.skip-link {
+  position: absolute; left: var(--space-3); top: -100px; z-index: 100;
+  background: var(--accent); color: var(--on-accent);
+  padding: var(--space-2) var(--space-3); border-radius: var(--radius-sm);
+  text-decoration: none; font-weight: 600;
+}
+.skip-link:focus { top: var(--space-3); }
