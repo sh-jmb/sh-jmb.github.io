@@ -1,0 +1,163 @@
+/* ==========================================================
+   Página 404: "Game Over" com glitch sobre chuva de código
+   ========================================================== */
+
+/* Fonte pixelada (arquivo original, sem modificações; licença em assets/fonts/8-bit-wonder) */
+@font-face {
+  font-family: "8BitWonder";
+  src: url("/assets/fonts/8-bit-wonder/8bit-wonder.ttf") format("truetype");
+  font-display: swap;
+}
+/* O autor recomenda tamanhos múltiplos de 9 (9, 18, 27, 36, 45...) */
+.font-8bit { font-family: "8BitWonder", var(--font-mono); font-weight: 400; letter-spacing: .02em; }
+
+.error-stage {
+  position: relative;
+  min-height: calc(100vh - var(--nav-height));
+  min-height: calc(100dvh - var(--nav-height));
+  display: grid; place-items: center;
+  overflow: hidden;
+}
+.error-stage canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* ---------- Caixa central em destaque, com glitch na borda ---------- */
+.error-content {
+  position: relative; z-index: 1; text-align: center;
+  margin: 1rem; padding: 2.25rem 2.25rem 2rem; max-width: 580px;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  border: 2px solid var(--accent); border-radius: 1rem;
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 25%, transparent),
+    0 0 32px -6px color-mix(in srgb, var(--accent) 55%, transparent),
+    inset 0 0 24px -12px color-mix(in srgb, var(--accent-2) 60%, transparent);
+  backdrop-filter: blur(2px);
+  animation: box-shake 4s infinite steps(1);
+}
+/* Duas "cópias" da borda (rosa e roxa) que pulam de lugar de vez em quando */
+.error-content::before, .error-content::after {
+  content: ""; position: absolute; inset: -2px;
+  border-radius: inherit; pointer-events: none; opacity: 0;
+}
+.error-content::before { border: 2px solid var(--accent-2); animation: box-glitch-a 3.2s infinite steps(1); }
+.error-content::after  { border: 2px solid var(--accent);   animation: box-glitch-b 2.7s infinite steps(1); }
+
+@keyframes box-glitch-a {
+  0%, 86%, 100% { opacity: 0; transform: none; clip-path: none; }
+  88% { opacity: .9; transform: translate(-6px, 2px); clip-path: inset(10% 0 60% 0); }
+  91% { opacity: .9; transform: translate(5px, -2px); clip-path: inset(55% 0 15% 0); }
+  94% { opacity: .7; transform: translate(-3px, 0);  clip-path: inset(30% 0 40% 0); }
+}
+@keyframes box-glitch-b {
+  0%, 80%, 100% { opacity: 0; transform: none; clip-path: none; }
+  82% { opacity: .9; transform: translate(6px, -1px); clip-path: inset(70% 0 5% 0); }
+  86% { opacity: .8; transform: translate(-5px, 2px); clip-path: inset(5% 0 75% 0); }
+}
+@keyframes box-shake {
+  0%, 89%, 100% { transform: none; }
+  90% { transform: translate(2px, -1px) skewX(-1deg); }
+  91% { transform: translate(-2px, 1px); }
+  92% { transform: none; }
+}
+
+/* ---------- Textos ---------- */
+.pixel { font-family: var(--font-mono); text-transform: uppercase; letter-spacing: .25em; }
+.stage-label { font-size: 18px; color: var(--accent-2); }
+.press-enter { font-size: .72rem; color: var(--muted); margin-top: 1rem; }
+.continue-label { font-size: .85rem; color: var(--muted); margin-top: 1.5rem; }
+
+/* GAME OVER com efeito glitch (cópias deslocadas em roxo e rosa) */
+.glitch {
+  position: relative; display: inline-block;
+  font-size: 45px; line-height: 1.15;
+  color: var(--text); margin: .75rem 0 1rem;
+}
+.glitch::before, .glitch::after { content: attr(data-text); position: absolute; inset: 0; }
+.glitch::before { color: var(--accent-2); animation: glitch-a 1.6s infinite steps(2); }
+.glitch::after  { color: var(--accent);   animation: glitch-b 1.3s infinite steps(2); }
+
+@keyframes glitch-a {
+  0%, 80% { transform: none; clip-path: inset(0 0 100% 0); }
+  85% { transform: translate(-5px, 2px); clip-path: inset(20% 0 50% 0); }
+  95% { transform: translate(4px, -1px); clip-path: inset(60% 0 10% 0); }
+}
+@keyframes glitch-b {
+  0%, 75% { transform: none; clip-path: inset(0 0 100% 0); }
+  82% { transform: translate(5px, -2px); clip-path: inset(40% 0 30% 0); }
+  90% { transform: translate(-3px, 1px); clip-path: inset(10% 0 70% 0); }
+}
+
+/* ---------- Caixa de seleção do "Continue?" (estilo menu de jogo) ---------- */
+.select-box {
+  position: relative;
+  display: inline-flex; align-items: center;
+  padding: .7rem 1.25rem;
+  font-size: .9rem; color: var(--text); text-decoration: none;
+  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  border: 2px solid var(--accent); border-radius: .5rem;
+  animation: btn-shake 1.9s infinite steps(1);
+}
+.select-label { display: inline-flex; align-items: center; gap: .6rem; animation: blink 1.1s steps(1) infinite; }
+.select-cursor { color: var(--accent-2); }
+
+/* Glitch forte: duas cópias do botão (texto + borda) em rosa e roxo, fatiadas e deslocadas */
+.select-box::before, .select-box::after {
+  content: attr(data-text);
+  position: absolute; inset: -2px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid; border-radius: inherit;
+  pointer-events: none; opacity: 0;
+}
+.select-box::before { color: var(--accent-2); border-color: var(--accent-2); animation: btn-glitch-a 1.9s infinite steps(1); }
+.select-box::after  { color: var(--accent);   border-color: var(--accent);   animation: btn-glitch-b 1.6s infinite steps(1); }
+
+@keyframes btn-glitch-a {
+  0%, 55%, 100% { opacity: 0; transform: none; clip-path: none; }
+  58% { opacity: 1; transform: translate(-9px, 2px);  clip-path: inset(0 0 62% 0); }
+  62% { opacity: 1; transform: translate(7px, -3px);  clip-path: inset(48% 0 12% 0); }
+  66% { opacity: .9; transform: translate(-5px, 1px); clip-path: inset(25% 0 45% 0); }
+  70% { opacity: 1; transform: translate(10px, 0);    clip-path: inset(70% 0 0 0); }
+  74% { opacity: 0; }
+}
+@keyframes btn-glitch-b {
+  0%, 40%, 100% { opacity: 0; transform: none; clip-path: none; }
+  43% { opacity: 1; transform: translate(8px, -2px);  clip-path: inset(60% 0 8% 0); }
+  47% { opacity: 1; transform: translate(-10px, 3px); clip-path: inset(5% 0 70% 0); }
+  51% { opacity: .9; transform: translate(4px, 0);    clip-path: inset(35% 0 35% 0); }
+  55% { opacity: 0; }
+}
+@keyframes btn-shake {
+  0%, 56%, 100% { transform: none; }
+  58% { transform: translate(-3px, 1px) skewX(-6deg); }
+  62% { transform: translate(3px, -1px) skewX(4deg); }
+  66% { transform: translate(-1px, 0); }
+  70% { transform: none; }
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* Ao passar o mouse ou focar pelo teclado: para de piscar e acende */
+.select-box:hover, .select-box:focus-visible {
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  border-color: var(--accent-2);
+  outline: none;
+}
+.select-box:hover .select-label, .select-box:focus-visible .select-label { animation: none; }
+.select-box:hover .select-cursor, .select-box:focus-visible .select-cursor { animation: cursor-nudge .5s steps(2) infinite; }
+@keyframes cursor-nudge { 50% { transform: translateX(3px); } }
+
+/* Celular: tamanhos menores (ainda múltiplos de 9) e sem "Press Enter" */
+@media (max-width: 575.98px) {
+  .glitch { font-size: 27px; }
+  .stage-label { font-size: 9px; }
+  .error-content { padding: 1.75rem 1.25rem 1.5rem; }
+}
+@media (hover: none) and (pointer: coarse) {
+  .press-enter { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch::before, .glitch::after,
+  .error-content::before, .error-content::after,
+  .select-box::before, .select-box::after { display: none; }
+  .error-content, .select-box, .select-label, .select-cursor { animation: none; }
+}

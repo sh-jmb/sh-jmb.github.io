@@ -10,3 +10,7 @@
 *.ico binary
 *.woff binary
 *.woff2 binary
+*.ttf binary
+
+# Fonte de terceiros: arquivos guardados exatamente como o autor distribuiu (sem conversão de linhas)
+assets/fonts/8-bit-wonder/** -text

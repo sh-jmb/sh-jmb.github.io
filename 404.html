@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="pt-BR" data-bs-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; base-uri 'self'; form-action 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta name="robots" content="noindex">
+
+  <title>Game Over · 404 | Joseph Monteiro</title>
+  <meta name="description" content="Página não encontrada.">
+  <meta name="theme-color" content="#f6f5fb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0e0d14" media="(prefers-color-scheme: dark)">
+
+  <!-- Caminhos absolutos (/...): o GitHub Pages mostra esta página em qualquer endereço inexistente -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="/assets/fonts/8-bit-wonder/8bit-wonder.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap">
+
+  <link rel="stylesheet" href="/vendor/bootstrap/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH">
+  <link rel="stylesheet" href="/css/tokens.css">
+  <link rel="stylesheet" href="/css/base.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/error404.css">
+
+  <script src="/js/theme-init.js"></script>
+  <script type="module" src="/js/main.js"></script>
+  <script type="module" src="/js/error404.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <nav class="navbar sticky-top site-nav" aria-label="Navegação principal">
+    <div class="container">
+      <a class="navbar-brand" href="/">&lt;sh-jmb<span>/</span>&gt;</a>
+      <button class="theme-btn" id="tema" type="button" aria-label="Alternar modo claro/escuro" title="Alternar modo claro/escuro">🌙</button>
+    </div>
+  </nav>
+
+  <main id="conteudo" class="error-stage">
+    <canvas id="chuva" aria-hidden="true"></canvas>
+
+    <div class="error-content">
+      <p class="font-8bit stage-label mb-0">STAGE 404</p>
+      <h1 class="glitch font-8bit" data-text="GAME OVER">GAME OVER</h1>
+      <p class="text-body-secondary mb-0">Você encontrou uma fase que ainda não existe.<br>O endereço pode ter sido digitado errado ou a página foi movida.</p>
+      <p class="pixel continue-label mb-2">Continue?</p>
+      <a class="select-box pixel" href="/" aria-label="Voltar ao início" data-text="▶ Voltar ao início"><span class="select-label"><span class="select-cursor" aria-hidden="true">▶</span> Voltar ao início</span></a>
+      <p class="pixel press-enter mb-0" aria-hidden="true">Press Enter</p>
+    </div>
+  </main>
+</body>
+</html>

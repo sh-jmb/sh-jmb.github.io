@@ -10,6 +10,7 @@ Feito com **HTML, CSS, JavaScript e Bootstrap 5.3.3**, hospedado no **GitHub Pag
 index.html            página inicial
 sobre.html            formação e objetivo
 criacoes.html         galeria de texturas e mapas (VRChat)
+404.html              página "Game Over" para endereços que não existem (chuva de código + glitch)
 vendor/bootstrap/     Bootstrap 5.3.3 (arquivos locais + LICENSE MIT)
 css/
   tokens.css          cores (claro/escuro) e fontes, aplicadas às variáveis --bs-* do Bootstrap
@@ -17,13 +18,17 @@ css/
   components.css      personalização dos componentes do Bootstrap (navbar, botões, cards) e componentes próprios
   pages.css           estilos das páginas internas (detalhes e galeria)
   animations.css      animações, hover e prefers-reduced-motion
+  error404.css        estilos da página 404 (glitch e "Continue?")
 js/
   theme-init.js       aplica o tema salvo antes da página aparecer
   theme.js            botão de modo claro/escuro (data-bs-theme)
   animations.js       seções que aparecem ao rolar e menu ativo
   main.js             ponto de entrada
+  rain.js             chuva de código em <canvas>, nas cores do tema
+  error404.js         página 404: chuva + tecla Enter para voltar ao início
 assets/
   favicon.svg         ícone da aba
+  fonts/8-bit-wonder/ fonte 8-BIT WONDER (Joiro Hatagaya, freeware) usada na chuva da 404, com README.TXT e 8-BIT WONDER.TXT originais
   criacoes/           imagens da galeria: texturas/ e mapas/ (criar ao adicionar a primeira imagem)
 perfil/, site/        versões antigas do README de perfil e do site, mantidas como histórico
 ```
