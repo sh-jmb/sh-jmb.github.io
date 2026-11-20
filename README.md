@@ -24,10 +24,12 @@ js/
   theme.js            botão de modo claro/escuro (data-bs-theme)
   animations.js       seções que aparecem ao rolar e menu ativo
   main.js             ponto de entrada
-  rain.js             chuva de código em <canvas>, nas cores do tema
+  rain.js             chuva de código em <canvas> (404 e topo da página inicial), nas cores do tema
   error404.js         página 404: chuva + tecla Enter para voltar ao início
+  cursor.js           luz neon do mouse, brilho nos blocos e textos, e efeito de toque no celular
 assets/
   favicon.svg         ícone da aba
+  cursor/             cursores neon em SVG (normal e para links)
   fonts/8-bit-wonder/ fonte 8-BIT WONDER (Joiro Hatagaya, freeware) usada na chuva da 404, com README.TXT e 8-BIT WONDER.TXT originais
   criacoes/           imagens da galeria: texturas/ e mapas/ (criar ao adicionar a primeira imagem)
 perfil/, site/        versões antigas do README de perfil e do site, mantidas como histórico

@@ -18,13 +18,67 @@
 .js .reveal { opacity: 0; transform: translateY(24px); transition: opacity var(--dur-med) var(--ease), transform var(--dur-med) var(--ease); }
 .js .reveal.is-visible { opacity: 1; transform: none; }
 
-/* Hover nos cards */
-.card { transition: transform var(--dur-fast) var(--ease), border-color var(--dur-fast), box-shadow var(--dur-fast); }
-.card:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: var(--shadow-card); }
-.btn:hover { transform: translateY(-1px); }
+/* ---------- Neon (mesma estética da página 404) ----------
+   Ao passar o mouse ou focar pelo teclado, o bloco "acende" como um tubo de neon:
+   pisca rapidamente e fica com a borda brilhando. */
+:root {
+  --neon-glow:
+    0 0 0 1px color-mix(in srgb, var(--accent) 30%, transparent),
+    0 0 24px -4px color-mix(in srgb, var(--accent) 60%, transparent),
+    inset 0 0 18px -10px color-mix(in srgb, var(--accent-2) 70%, transparent);
+  --neon-glow-soft:
+    0 0 0 1px color-mix(in srgb, var(--accent) 18%, transparent),
+    0 0 16px -6px color-mix(in srgb, var(--accent) 45%, transparent);
+}
+
+@keyframes neon-on {
+  0%   { box-shadow: none; border-color: var(--line); }
+  15%  { box-shadow: var(--neon-glow); border-color: var(--accent); }
+  25%  { box-shadow: none; border-color: var(--line); }
+  40%  { box-shadow: var(--neon-glow); border-color: var(--accent-2); }
+  50%  { box-shadow: none; border-color: var(--line); }
+  65%, 100% { box-shadow: var(--neon-glow); border-color: var(--accent); }
+}
+
+/* Cards (blocos) */
+.card { transition: transform var(--dur-fast) var(--ease), border-color .45s, box-shadow .45s, --lit .45s ease-out; }
+.card:hover, .card-link-block:focus-visible, .card.is-touched {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: var(--neon-glow);
+  animation: neon-on .5s steps(1) 1;
+  outline: none;
+}
+
+/* Botões */
+.btn { transition: transform var(--dur-fast) var(--ease), box-shadow .45s, border-color .45s, background-color var(--dur-fast), --lit .45s ease-out; }
+.btn-primary { box-shadow: var(--neon-glow-soft); }
+.btn:hover, .btn:focus-visible, .btn.is-touched {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  box-shadow: var(--neon-glow);
+  animation: neon-on .5s steps(1) 1;
+}
+.btn-primary:hover, .btn-primary:focus-visible, .btn-primary.is-touched { border-color: var(--accent-2); }
+
+/* Botão de tema e links do menu */
+.theme-btn { transition: box-shadow .45s, border-color .45s, background-color .25s, color .25s, --lit .45s ease-out; }
+.theme-btn:hover, .theme-btn:focus-visible, .theme-btn.is-touched { border-color: var(--accent); box-shadow: var(--neon-glow); animation: neon-on .5s steps(1) 1; }
+.site-nav .nav-link { transition: color var(--dur-fast), text-shadow var(--dur-fast); }
+.site-nav .nav-link:hover, .site-nav .nav-link:focus-visible {
+  color: var(--accent);
+  text-shadow: 0 0 10px color-mix(in srgb, var(--accent) 70%, transparent);
+}
+
+/* Item "em andamento" dos próximos passos: o quadradinho pulsa como neon */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 4px 0 color-mix(in srgb, var(--accent) 50%, transparent); }
+  50%      { box-shadow: 0 0 12px 2px color-mix(in srgb, var(--accent-2) 70%, transparent); }
+}
+.checks li.is-progress::before { animation: neon-pulse 2.2s ease-in-out infinite; }
 
 /* Transição suave ao trocar o tema */
-body, .site-nav, .theme-btn { transition: background-color .25s, border-color .25s, color .25s; }
+body, .site-nav { transition: background-color .25s, border-color .25s, color .25s; }
 
 /* Respeita quem pediu menos movimento no sistema */
 @media (prefers-reduced-motion: reduce) {
@@ -32,3 +86,63 @@ body, .site-nav, .theme-btn { transition: background-color .25s, border-color .2
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .js .reveal { opacity: 1; transform: none; }
 }
+
+/* ---------- Cursor neon + luz que segue o mouse (só com mouse) ---------- */
+@media (hover: hover) and (pointer: fine) {
+  html, body { cursor: url("../assets/cursor/cursor.svg") 5 5, auto; }
+  a, button:not(:disabled), [type="button"]:not(:disabled), [role="button"]:not(:disabled), label[for], .btn, .navbar-toggler, .theme-btn, .select-box { cursor: url("../assets/cursor/cursor-link.svg") 5 5, pointer; }
+}
+
+/* Cores da luz = cores do cursor (rosa à esquerda/baixo, roxo à direita/cima) */
+:root { --light-pink: #ff4fa3; --light-purple: #8f7bff; }
+
+/* Luz na página (fora dos blocos)
+   --mx/--my (posição) e --lr (tamanho) são registradas para poderem ser animadas:
+   assim a luz desliza até o canto quando o mouse sai da janela. */
+@property --mx { syntax: "<length>"; inherits: false; initial-value: -999px; }
+@property --my { syntax: "<length>"; inherits: false; initial-value: -999px; }
+@property --lr { syntax: "<number>"; inherits: false; initial-value: 1; }
+.cursor-light {
+  position: fixed; inset: 0; z-index: 1080; pointer-events: none;
+  opacity: 0; transition: opacity .3s, --lr .6s ease-out;
+  background:
+    radial-gradient(calc(220px * var(--lr)) circle at calc(var(--mx) - 40px) calc(var(--my) + 30px),
+      color-mix(in srgb, var(--light-pink) 16%, transparent), transparent 70%),
+    radial-gradient(calc(240px * var(--lr)) circle at calc(var(--mx) + 40px) calc(var(--my) - 30px),
+      color-mix(in srgb, var(--light-purple) 18%, transparent), transparent 70%);
+}
+.cursor-light.is-on { opacity: 1; }
+/* Em repouso no canto inferior direito: maior e deslizando devagar até lá */
+.cursor-light.is-resting {
+  --lr: 1.6;
+  transition: opacity .3s, --lr 1.2s ease-out, --mx 1.2s cubic-bezier(.2,.7,.2,1), --my 1.2s cubic-bezier(.2,.7,.2,1);
+}
+[data-bs-theme="light"] .cursor-light { mix-blend-mode: multiply; }
+[data-bs-theme="dark"] .cursor-light { mix-blend-mode: screen; }
+
+/* Luz "presa" dentro do bloco: só aparece no bloco em que o mouse (ou o dedo) está.
+   --lit vai de 0 a 1 com transição, então o brilho acende e APAGA suavemente. */
+@property --lit { syntax: "<number>"; inherits: false; initial-value: 0; }
+.card, .btn, .theme-btn, .select-box {
+  background-image:
+    radial-gradient(180px circle at calc(var(--lx, 50%) - 30px) calc(var(--ly, 50%) + 20px),
+      rgb(255 79 163 / calc(var(--lit) * .20)), transparent 70%),
+    radial-gradient(200px circle at calc(var(--lx, 50%) + 30px) calc(var(--ly, 50%) - 20px),
+      rgb(143 123 255 / calc(var(--lit) * .24)), transparent 70%);
+}
+.is-lit { --lit: 1; }
+
+/* ---------- Textos que reagem à luz do mouse ----------
+   O texto é "pintado" por um degradê: perto do mouse ele fica rosa/roxo neon,
+   longe dele volta à cor normal. --tr (0 a 1) faz a luz crescer e apagar suave. */
+@property --tr { syntax: "<number>"; inherits: false; initial-value: 0; }
+.glow-text {
+  --glow-base: var(--text);
+  background-image: radial-gradient(calc(150px * var(--tr)) circle at var(--tx, -999px) var(--ty, -999px),
+    #ff4fa3, #8f7bff 45%, var(--glow-base) 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent;
+  transition: --tr .5s ease-out;
+}
+.lead.glow-text { --glow-base: var(--muted); }
+.glow-text.is-text-lit { --tr: 1; }

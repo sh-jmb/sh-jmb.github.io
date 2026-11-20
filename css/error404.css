@@ -92,9 +92,10 @@
   display: inline-flex; align-items: center;
   padding: .7rem 1.25rem;
   font-size: .9rem; color: var(--text); text-decoration: none;
-  background: color-mix(in srgb, var(--accent) 14%, transparent);
+  background-color: color-mix(in srgb, var(--accent) 14%, transparent);
   border: 2px solid var(--accent); border-radius: .5rem;
   animation: btn-shake 1.9s infinite steps(1);
+  transition: background-color .45s, border-color .45s, --lit .45s ease-out;
 }
 .select-label { display: inline-flex; align-items: center; gap: .6rem; animation: blink 1.1s steps(1) infinite; }
 .select-cursor { color: var(--accent-2); }
@@ -135,13 +136,13 @@
 @keyframes blink { 50% { opacity: 0; } }
 
 /* Ao passar o mouse ou focar pelo teclado: para de piscar e acende */
-.select-box:hover, .select-box:focus-visible {
+.select-box:hover, .select-box:focus-visible, .select-box.is-touched {
   color: var(--text);
-  background: color-mix(in srgb, var(--accent) 26%, transparent);
+  background-color: color-mix(in srgb, var(--accent) 26%, transparent);
   border-color: var(--accent-2);
   outline: none;
 }
-.select-box:hover .select-label, .select-box:focus-visible .select-label { animation: none; }
+.select-box:hover .select-label, .select-box:focus-visible .select-label, .select-box.is-touched .select-label { animation: none; }
 .select-box:hover .select-cursor, .select-box:focus-visible .select-cursor { animation: cursor-nudge .5s steps(2) infinite; }
 @keyframes cursor-nudge { 50% { transform: translateX(3px); } }
 
@@ -160,4 +161,9 @@
   .error-content::before, .error-content::after,
   .select-box::before, .select-box::after { display: none; }
   .error-content, .select-box, .select-label, .select-cursor { animation: none; }
+}
+
+@media (hover: none) {
+  .select-box:hover:not(.is-touched) { background-color: color-mix(in srgb, var(--accent) 14%, transparent); border-color: var(--accent); }
+  .select-box:hover:not(.is-touched) .select-label { animation: blink 1.1s steps(1) infinite; }
 }
