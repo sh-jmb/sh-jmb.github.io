@@ -13,6 +13,7 @@ criacoes.html         galeria de texturas e mapas (VRChat)
 404.html              página "Game Over" para endereços que não existem (chuva de código + glitch)
 vendor/bootstrap/     Bootstrap 5.3.3 (arquivos locais + LICENSE MIT)
 css/
+  fonts.css           fontes hospedadas no próprio site (Inter e JetBrains Mono)
   tokens.css          cores (claro/escuro) e fontes, aplicadas às variáveis --bs-* do Bootstrap
   base.css            ajustes gerais, tipografia e acessibilidade
   components.css      personalização dos componentes do Bootstrap (navbar, botões, cards) e componentes próprios
@@ -30,6 +31,8 @@ js/
 assets/
   favicon.svg         ícone da aba
   cursor/             cursores neon em SVG (normal e para links)
+  fonts/inter/        Inter variável (.woff2) + OFL.txt
+  fonts/jetbrains-mono/ JetBrains Mono 500 (.woff2) + OFL.txt
   fonts/8-bit-wonder/ fonte 8-BIT WONDER (Joiro Hatagaya, freeware) usada na chuva da 404, com README.TXT e 8-BIT WONDER.TXT originais
   criacoes/           imagens da galeria: texturas/ e mapas/ (criar ao adicionar a primeira imagem)
 perfil/, site/        versões antigas do README de perfil e do site, mantidas como histórico
@@ -52,7 +55,7 @@ Os scripts são módulos ES, então o site precisa ser aberto por um servidor lo
 
 ## Boas práticas adotadas
 
-- **Content Security Policy** em todas as páginas: só carrega scripts e estilos do próprio site e as fontes do Google.
+- **Content Security Policy** em todas as páginas: só carrega scripts, estilos e fontes do próprio site (nada de servidores externos).
 - Nenhum CSS ou JavaScript inline (necessário para a CSP rígida).
 - Bootstrap guardado no projeto e verificado pelo navegador com `integrity` (SHA-384).
 - Links externos com `rel="noopener noreferrer"`.
